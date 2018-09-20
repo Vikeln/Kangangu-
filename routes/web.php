@@ -14,18 +14,26 @@ Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('charts', function(){
-  return view('charts');
-} );
 
-Route::get('events','events@read');
+
+Route::get('/events',array('uses' => 'events@read'));
+
 Route::get('departments', function ()
-{
-  return view('departments');
-});
+{  return view('departments'); });
+
 //getting all exams that current logged student has done
-Route::get('academic', array('uses' => 'report@exam'));
+Route::get('/academic', array('uses' => 'report@exam'));
+
 //gettimg results for posted exam_id
-Route::post('academic', array('uses' => 'report@read'));
+Route::post('/academic', array('uses' => 'report@read'));
+
 //LOGOUT
-Route::get('logout',array('uses' => 'Auth\LoginController@logout'));
+Route::get('/logout',array('uses' => 'Auth\LoginController@logout'));
+// 
+// //event Notification
+// Route::get('notify',array('uses' => 'eventNotify@weekTo'));
+// Route::view('/events','events');
+//
+// //exams Notification
+// Route::get('exams',array('uses' => 'examNotify@newExamAvailable'));
+// Route::view('/academic','academic');

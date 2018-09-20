@@ -18,6 +18,7 @@ class report extends Controller
             ->select('role')
             ->where([['users.id','=', $sessionid]])
             ->first();
+
             if ( $role->role == 'student'){
               //get relevant exams list(id and name) for current student
                 $exam = DB::table('exam_results')
@@ -26,10 +27,7 @@ class report extends Controller
                   ->where([['exam_results.student_id','=', $sessionid]])
                   ->orderBy('exam_results.exam_id','desc')
                   ->get();
-                    // $dee = collect($deets) -> toArray();
-
-                    // $exm = collect($exam) -> toArray();response()->
-                    return View::make('academic',compact('exam'));
+                return View::make('academic',compact('exam'));
 
             }
             else {//if user is a teacher or admin get all exams
@@ -37,17 +35,12 @@ class report extends Controller
                   ->select('exams.exam_id as id','exams.exam_name as name','exams.form as form','exams.term as term','exams.year as year')
                   ->orderBy('exam_id','desc')
                   ->get();
-                    // $dee = collect($deets) -> toArray();
-
-                    // $exm = collect($exam) -> toArray();response()->
-                    return View::make('academic',compact('exam'));
+            return View::make('academic',compact('exam'));
 
             }
-          // echo "string".$sessionid;
 
       }
       else {
-          // return redirectTo::route('Auth/login');
 
           return view('Auth/login');
       }

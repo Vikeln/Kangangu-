@@ -11,7 +11,34 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+    <script type="text/javascript">
+
+     var pusher = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
+        cluster: '{{env("PUSHER_APP_CLUSTER")}}',
+        encrypted: true
+      });
+
+      var channel = pusher.subscribe('event-channel');
+      channel.bind('App\\Events\\newEvent', function(data) {
+        alert(data.message);
+      });
+    </script>
+
+    <script type="text/javascript">
+
+     var pusher = new Pusher('{{env("MIX_PUSHER_APP_KEY")}}', {
+        cluster: '{{env("PUSHER_APP_CLUSTER")}}',
+        encrypted: true
+      });
+
+      var channel = pusher.subscribe('exams-channel');
+      channel.bind('App\\Events\\examEvent', function(data) {
+        alert(data.message);
+      });
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -58,10 +85,11 @@ background-color: #555;
 color: white;
 }
     </style>
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-fixed navbar-light navbar-laravel">
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -91,8 +119,10 @@ color: white;
                           <li class="nav-item"><a class="nav-link" href="/#gallery">GALLERY</a></li>
                           <li class="nav-item"><a class="nav-link" href="/departments">DEPARTMENTS</a></li>
                           <li class="nav-item"><a class="nav-link" href="/events">UPCOMING EVENTS</a></li>
-                          <li class="nav-item btn-trial"><a class="nav-link" href="/academic">ACADEMICS</a></li>
-                          <li class="nav-item dropdown">
+                          <li class="nav-item"><a class="nav-link" href="/academic">ACADEMICS</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/password/reset">Change Password</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/logout">LOGOUT</a></li>
+                          <!-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
                                     {{ Auth::user()->first_name }}
                                 </a>
@@ -108,7 +138,7 @@ color: white;
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
+                            </li> -->
                         @endguest
                     </ul>
                 </div>

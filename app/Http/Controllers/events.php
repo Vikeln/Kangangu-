@@ -11,7 +11,7 @@ class events extends Controller
   {
       if ( Auth::check()) {
     $events = DB::table('events')
-      ->where('event_date','=>', date('Y-m-d'))//list only those events that haven't passed that year
+      ->where('event_date','<', date('Y-m-d'))//list only those events that haven't passed that year
       ->get();
 
       //check if null
