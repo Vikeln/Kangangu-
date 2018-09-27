@@ -146,6 +146,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Orchestra\Parser\XmlServiceProvider::class,
         // consoletvs\charts\ChartsServiceProvider::class,
 
         /*
@@ -213,7 +214,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Charts' => Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class,
-
+        'XmlParser' => Orchestra\Parser\Xml\Facade::class,
     ],
 
 ];

@@ -7,6 +7,13 @@
   <body>
     @section('content')
     <div class="container">
+      <div class="row">
+        <div class="col-sm">
+
+        </div> <div class="col-sm-2">
+          <a class="card-link" href="/adta">dataHandling</a>
+        </div>
+      </div>
       <div class="card card-primary">
         <div class="card-header">
           <h4 class="card-title text-center">KANGANGU HIGH SCHOOL STUDENT EXAM REPORTS</h4>

@@ -9,7 +9,7 @@
   </head>
   <body>
     @section('content')
-
+    
 @foreach($events as $key => $data)
   <br>
   <div class="container">
@@ -18,7 +18,7 @@
         <div class="card  bg-light">
         <div class="row">
           <div class="col-sm"><hr class="bottom-line">
-            <h6 class="card-title text-center">KANGANGU EVENTS</h6>
+            <h6 class="card-title text-center">EVENT</h6>
             <h4 class="card-body card-text"> <b>{{$data -> event_name}}</b> </h4>
             <hr class="bottom-line">
             <h6  class="text-center">{{$data -> event_date}}</h6>

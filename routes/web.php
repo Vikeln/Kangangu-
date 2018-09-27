@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes();
 Route::get('/', function () {
     return view('welcome');
@@ -29,7 +30,16 @@ Route::post('/academic', array('uses' => 'report@read'));
 
 //LOGOUT
 Route::get('/logout',array('uses' => 'Auth\LoginController@logout'));
-// 
+
+//dataHandling
+Route::get('/adta',array('uses' => 'dataHandling@execute_users'));
+
+//uploads
+Route::get('/upload',array('uses' => 'uploads@uploadForm'));
+Route::post('/upload' , array('uses' => 'uploads@uploadHandle'));
+
+
+//
 // //event Notification
 // Route::get('notify',array('uses' => 'eventNotify@weekTo'));
 // Route::view('/events','events');

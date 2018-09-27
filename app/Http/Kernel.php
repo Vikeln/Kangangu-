@@ -64,6 +64,8 @@ class Kernel extends HttpKernel
         'departments' => \app\Http\Middleware\departments::class,
         'report' => \app\Http\Middleware\report::class,
         'academic' => \app\Http\Middleware\academic::class,
+        'adta' =>\app\Http\Middleware\dataHandling::class,
+        'upload' => \app\Http\Middleware\uploads::class,
 
         ];
 }
