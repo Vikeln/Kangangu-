@@ -120,7 +120,7 @@ color: white;
                           <li class="nav-item"><a class="nav-link" href="/departments">DEPARTMENTS</a></li>
                           <li class="nav-item"><a class="nav-link" href="/events">UPCOMING EVENTS</a></li>
                           <li class="nav-item"><a class="nav-link" href="/academic">ACADEMICS</a></li>
-                          <li class="nav-item"><a class="nav-link" href="/password/reset">Change Password</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/resett">Change Password</a></li>
                           <li class="nav-item"><a class="nav-link" href="/logout">LOGOUT</a></li>
                           <!-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">

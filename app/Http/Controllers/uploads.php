@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use View;
+use DB;
 
 class uploads extends Controller
 {
@@ -13,17 +14,24 @@ class uploads extends Controller
     }
 
     public function uploadHandle(Request $request){
-  $photos = $request->all();
-  $photos = $request->file('photos');
+      $photos = $request->all();
+  //update database
+    $names = $request->input('name');
+    $date = //today's date
+    $photos = $request->file('photos');
+    if (//insert into database
+    DB::table('uploads')->insert(array('file_names' => $names, 'created_at' => $date));
+  ) {
     $paths  = [];
-
     foreach ($photos as $photo) {
         $filename  = $photo->getClientOriginalName();
         $extension = $photo->getClientOriginalExtension();
-        // $filename = $filename.$extension;
         $paths[]   = $photo->storeAs('data', $filename);
     }
-    return view('uploads/uploadForm')->with('success','File uploading succe completed');
+
+    }
+
+    return view('uploads/uploadForm')->with('success','File uploading successfully completed');
     // dd($paths);
 }
 //       $this -> validate($request , [

@@ -36,7 +36,7 @@
     </div> <br>
     <div class="container-fluid">
       <table class="table table-stripped">
-        <thead>
+        <thead class="text-center">
           <th>Pos</th>
           <th>Student_ID</th>
           <th>Name</th>
@@ -50,7 +50,7 @@
           <th>Grade</th>
           <th>Class_Pos</th>
         </thead>
-        <tbody>
+        <tbody class="text-center">
           @foreach($results as $key => $mr)
             <tr>
                 <td>{{$mr -> form_pos}}</td>
@@ -84,7 +84,6 @@
 
     </div><div class="card-block text-center card-body">
 
-              {{ $results->links() }}
     </div>
     <br><br>
     @include('includes.footer')

@@ -319,9 +319,7 @@ class report extends Controller
                   ->select('exam_results.*','users.first_name','users.last_name','users.surname','classes.form_name as form_name','classes.class_name as class','exams.exam_name as examn','exams.form as examform','exams.term as term','exams.year as year')
                   ->where([['exam_results.exam_id','=', $exam_id]])
                   ->orderBy('exam_results.form_pos','asc')
-                  ->simplePaginate(5);
-
-                  $results->withPath('custom/url');
+                  ->get();
 
                 return View::make('academia',compact('subjects','results','examd'));
             }

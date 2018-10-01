@@ -9,12 +9,28 @@ use Illuminate\Http\Request;
 // use Orchestra\Parser\Xml\Reader as OrchestraReader;
 
 //
-// use Orchestra\Parser\Xml\Facade as XmlParser;
-// use App\User;
+use Orchestra\Parser\Xml\Facade as XmlParser;
+use Storage;
 use View;
 
 class dataHandling extends Controller
 {
+
+    public function execute_results(){
+
+      $path = Storage::url('app/data/users.xml');
+      dd($path);
+      $file = file_get_contents('/data/exam_results.xml');
+
+$xml = XmlParser::extract($file);
+
+$array = $xml->parse([
+  'users' => ['uses' => 'table[column(::name=@)]'],
+  // 'id' => ['uses' => '::code'],
+  // 'title' => ['uses' => 'title[::lang>locale, value>name]'],
+]);
+dd($array);
+    }
     public function execute_users(){
       //read xml file
       $app = new \Illuminate\Container\Container;

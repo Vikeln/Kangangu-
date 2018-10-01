@@ -19,12 +19,12 @@
       <h4 class="text-center">School Feedback Form</h4>
     <p class="text-center">For any issues or queries, please fill in the form below and we will contact you on email as soon as possible.</p>
     <hr class="bottom-line">
-      <form class="form" action="/" method="post">
+      <form class="form" action="/contact" method="post">
         <div class="form-group">
             <label class="mb-2 mr-sm-2">Name</label>
             <input type="text" class="form-control mb-2 mr-sm-2" name="name" required placeholder="example example">
             <label class="mb-2 mr-sm-2">Email</label>
-            <input type="text" for="email" class="form-control mb-2 mr-sm-2" name="name" required placeholder="example@example.com"> <br>
+            <input type="text" for="email" class="form-control mb-2 mr-sm-2" name="email" required placeholder="example@example.com"> <br>
             <textarea name="query" rows="8" cols="80" class="form-control" placeholder="Your query here. Please keep it clear, specific and to the point."></textarea> <br>
             <button type="button" class="btn btn-primary mb-2 float-right">Submit</button>
         </div>

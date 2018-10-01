@@ -30,9 +30,15 @@ Route::post('/academic', array('uses' => 'report@read'));
 
 //LOGOUT
 Route::get('/logout',array('uses' => 'Auth\LoginController@logout'));
+Route::get('/resett',function(){
+  return view('/auth/passwords/reset');
+});
+
+//Contacts
+Route::post('/contact',array('uses' => 'contact@contactUSPost'))
 
 //dataHandling
-Route::get('/adta',array('uses' => 'dataHandling@execute_users'));
+Route::get('/adta',array('uses' => 'dataHandling@execute_results'));
 
 //uploads
 Route::get('/upload',array('uses' => 'uploads@uploadForm'));
