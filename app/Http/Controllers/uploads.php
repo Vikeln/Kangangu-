@@ -17,81 +17,20 @@ class uploads extends Controller
       $photos = $request->all();
   //update database
     $names = $request->input('name');
-    $date = //today's date
+    $date = date("Y-m-d");
+    // dd($date);
     $photos = $request->file('photos');
-    if (//insert into database
-    DB::table('uploads')->insert(array('file_names' => $names, 'created_at' => $date));
-  ) {
+    if (DB::table('uploads')->insert(array('file_names' => $names, 'created_at' => $date,'done' => 0)) )
+    {
     $paths  = [];
     foreach ($photos as $photo) {
         $filename  = $photo->getClientOriginalName();
         $extension = $photo->getClientOriginalExtension();
-        $paths[]   = $photo->storeAs('data', $filename);
+        $folder = "data/".$date;//save files to their folder according to today's date
+        $paths[]   = $photo->storeAs($folder, $filename);
     }
-
     }
 
     return view('uploads/uploadForm')->with('success','File uploading successfully completed');
-    // dd($paths);
 }
-//       $this -> validate($request , [
-//         'name' => 'required',
-//         'files' => 'required'
-// ]);
-//
-// if($request->hasFile('files'))
-//
-// {
-//
-// $allowedfileExtension=['xml'];
-//
-// $filess = $request->file('files');
-//
-// foreach($filess as $file){
-//
-// $filename = $file->getClientOriginalName();
-//
-// $extension = $file->getClientOriginalExtension();
-//
-// $check=in_array($extension,$allowedfileExtension);
-//
-// // dd($check);
-//
-// if($check)
-//
-// {
-//
-// // $exists = Storage::disk('s3')->exists('file.jpg');
-// // $contents = Storage::get('file.jpg');
-// foreach ($request->files as $photo) {
-//
-//   // dd($filename);
-// $filename = $photo -> store('data');
-// // ItemDetail::create([
-// //
-// // 'item_id' => $items->id,
-// //
-// // 'filename' => $filename
-// //
-// // ]);
-//
-// }
-//
-// echo "Upload Successful";
-//
-// }
-//
-// else
-//
-// {
-//
-// echo '<div class="alert alert-warning"><strong>Warning!</strong> Sorry Only Upload xml</div>';
-//
-// }
-//
-// }
-//
-// }
-//
-// }
 }

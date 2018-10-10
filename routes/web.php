@@ -35,10 +35,10 @@ Route::get('/resett',function(){
 });
 
 //Contacts
-Route::post('/contact',array('uses' => 'contact@contactUSPost'))
+Route::post('/contact',array('uses' => 'contact@contactUSPost'));
 
 //dataHandling
-Route::get('/adta',array('uses' => 'dataHandling@execute_results'));
+Route::get('/adta',array('uses' => 'dataHandling@execute_subjects'));
 
 //uploads
 Route::get('/upload',array('uses' => 'uploads@uploadForm'));

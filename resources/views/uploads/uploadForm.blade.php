@@ -37,21 +37,18 @@
 
           <div class="form-group">
 
-          <label for="Product Name">Return file names</label>
+          <label>Return file names</label>
 
           <input type="text" name="name" class="form-control">
 
           </div>
-
-          <label for="Product Name">Files (can attach more than one):</label>
-
-          <br />
-
-          <input type="file" id="file" class="form-control" name="photos[]" multiple />
-
-          <br /><br />
-
-          <input type="submit" class="btn btn-primary" value="Upload" />
+          <div class="form-group">
+            <label>Files (can attach more than one):</label>
+            <input type="file" id="file" class="form-control" name="photos[]" multiple />
+          </div>
+          <div class="form-group text-center">
+            <input type="submit" class="text-center btn btn-primary" value="Upload" />
+          </div>
 
           </form>
         </div>

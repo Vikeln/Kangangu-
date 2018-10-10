@@ -203,7 +203,7 @@
                           $sub = $subd -> subject_alias;
                           $mar = $results -> $sub;
                           $prev = $prevs -> $sub;
-                          $dev = $prev - $mar;
+                          $dev = $mar - $prev;
 
                           if ($mar > 75){
                        $grade = 'A';
